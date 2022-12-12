@@ -1,0 +1,17 @@
+---
+# defaults file for ansible-role-jupyter_as_docker
+ubuntu_user_home_path:
+jupyter_home_dir_host: '{{ ubuntu_user_home_path }}/jupyter_home'
+jupyter_home_dir_container: '/home/jovyan/work'
+
+jupyter_user_id: '1000'
+jupyter_group_id: '1000'
+
+jupyter_registry: 'jupyter'
+jupyter_image_name: 'minimal-notebook'
+jupyter_image_tag: 'latest'
+
+jupyter_instance_name: 'jupyter_nb'
+jupyter_host_port: '8888'
+
+jupyter_cmd_options: 'notebook'

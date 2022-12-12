@@ -1,0 +1,22 @@
+---
+# tasks file for ansible-role-jupyter_as_docker
+- name: Ensure Jupyter Home Directory on Docker Host
+  file:
+    path: "{{ jupyter_home_dir_host }}"
+    state: directory
+    owner: "{{ jupyter_user_id }}"
+    group: "{{ jupyter_group_id }}"
+
+- name: "Run the jupyter-notebook Container on Port {{ jupyter_host_port }}"
+  docker_container:
+    name: "{{ jupyter_instance_name }}"
+    image: "{{ jupyter_registry }}/{{ jupyter_image_name }}:{{ jupyter_image_tag }}"
+    pull: yes
+    ports:
+      - "{{ jupyter_host_port }}:8888"
+    volumes:
+      - "{{ jupyter_home_dir_host }}:{{ jupyter_home_dir_container }}"
+    env:
+      DOCKER_STACKS_JUPYTER_CMD: "{{ jupyter_cmd_options }}"
+    state: started
+    restart_policy: always
