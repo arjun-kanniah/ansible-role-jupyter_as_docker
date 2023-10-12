@@ -14,4 +14,4 @@ jupyter_image_tag: 'latest'
 jupyter_instance_name: 'jupyter_nb'
 jupyter_host_port: '8888'
 
-jupyter_cmd_options: 'notebook'
+jupyter_cmd_options: 'lab'
