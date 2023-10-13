@@ -7,6 +7,13 @@
     owner: "{{ jupyter_user_id }}"
     group: "{{ jupyter_group_id }}"
 
+- name: Ensure Conda Virtualenvs folder on Docker Host
+  file:
+    path: "{{ conda_virtual_envs_host }}"
+    state: directory
+    owner: "{{ jupyter_user_id }}"
+    group: "{{ jupyter_group_id }}"
+
 - name: "Run the jupyter-notebook Container on Port {{ jupyter_host_port }}"
   docker_container:
     name: "{{ jupyter_instance_name }}"
