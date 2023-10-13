@@ -23,7 +23,7 @@
       - "{{ jupyter_host_port }}:8888"
     volumes:
       - "{{ jupyter_home_dir_host }}:{{ jupyter_home_dir_container }}"
-      - "{{ conda_virtual_envs_host }}:{{ conda_virtaul_env_container }}"
+      - "{{ conda_virtual_envs_host }}:{{ conda_virtual_envs_container }}"
     env:
       DOCKER_STACKS_JUPYTER_CMD: "{{ jupyter_cmd_options }}"
     state: started
